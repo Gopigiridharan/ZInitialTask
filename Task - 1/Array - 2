@@ -1,0 +1,416 @@
+//countEvens
+public int countEvens(int[] nums) {
+  int count = 0;
+  
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i]%2==0){
+      count++;
+    }
+  }
+  return count;
+}
+//sum13
+public int sum13(int[] nums) {
+  int sum = 0;
+   for (int i = 0; i < nums.length; i++) {
+    if(nums[i] != 13) {
+      sum += nums[i];
+      if(i>0 && nums[i-1] == 13)
+        sum -= nums[i];
+    }
+  }
+  return sum;
+}
+//lucky13
+public boolean lucky13(int[] nums) {
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i] == 1 || nums[i] == 3){
+      return false;
+    }
+  }
+  return true;
+}
+//fizzArray
+public int[] fizzArray(int n) {
+  int num[] = new int[n];
+  int c = 0;
+  for(int i = 0; i < n; i++){
+    num[i] = c;
+    c++;
+  }
+  return num;
+}
+//no14
+public boolean no14(int[] nums) {
+  boolean found1 = false, found4 = false;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == 1)
+      found1 = true;
+    if (nums[i] == 4)
+      found4 = true;
+  }
+  if (found1 && found4)
+    return false;
+  return true;
+}
+//matchUp
+public int matchUp(int[] nums1, int[] nums2) {
+  int count =0;
+  for (int i =0; i <nums1.length ;i++)
+  if (Math.abs(nums1[i] - nums2[i]) == 1 || Math.abs(nums1[i] -nums2[i]) == 2 ){
+          count++;
+  }
+  return count;
+}
+//modThree
+public boolean modThree(int[] nums) {
+  boolean result = false;
+  for (int i = 0;i<nums.length-2;i++)
+  if( (nums[i] % 2 == 0 && nums[i+1] % 2 == 0 && nums[i+2] % 2 == 0)
+  || (!(nums[i] % 2 == 0) && !(nums[i+1] % 2 == 0) && !(nums[i+2] % 2 == 0)))
+    result = true;
+ return result;
+}
+//sameEnds
+public boolean sameEnds(int[] nums, int len) {
+   boolean foo = true;
+  for (int i = 0; i < len; i++) {
+    if (nums[i] == nums[nums.length-len+i])
+      foo = true;
+    else
+     foo = false;
+  } 
+  return foo;
+}
+//shiftLeft
+public int[] shiftLeft(int[] nums) {
+  int j = nums.length - 1;
+  
+  for(int i = nums.length - 2; i >= 0; i--){
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+  }
+  return nums;
+}
+//post4
+public int[] post4(int[] nums) {
+  for (int i = nums.length-1; i >= 0; i--) {
+    if (nums[i] == 4) {
+      int[] foo = new int[nums.length-i-1];
+      for (int j = 0; j < foo.length; j++) {
+        foo[j] = nums[i+j+1];
+      }
+      return foo;
+    }
+  }
+  int[] bar = new int[0];
+  return bar;
+}
+//withoutTen
+public int[] withoutTen(int[] nums) {
+  int[] result = new int[nums.length];
+  int j = 0;
+  for(int i = 0; i < nums.length; i++) {
+    if(nums[i]!=10) {
+      result[j] = nums[i];
+      j++;
+    }
+  }
+  for(int i = j; i < nums.length; i++) {
+    result[i] = 0;
+  }
+  return result;
+}
+//fizzBuzz
+public String[] fizzBuzz(int start, int end) {
+  String f = "Fizz", b = "Buzz", fb = "FizzBuzz";
+  String[] str = new String[end-start];
+  int g = 0;
+  for(int i = start; i < end; i++){
+    if(i%3==0 && i%5==0){
+      str[g] = fb;
+    }else if(i%3==0){
+      str[g] = f;
+    }else if(i%5==0){
+      str[g] = b;
+    }else{
+      str[g] = ""+i;
+    }
+    g++;
+  }
+  return str;
+}
+//bigDiff
+public int bigDiff(int[] nums) {
+  int max = nums[0], min = nums[0];
+  
+  for(int i = 1; i < nums.length; i++){
+    if(max < nums[i]){
+      max = nums[i];
+    }
+    if(min > nums[i]){
+      min = nums[i];
+    }
+  }
+  return max - min;
+}
+//sum67
+public int sum67(int[] nums) {
+  int sum=0;
+  for(int i=0;i<nums.length;i++){
+    if(nums[i]==6)
+      while(nums[i]!=7){
+         ++i;
+      }
+   else
+      sum+=nums[i];
+  }
+   return sum;
+}
+//sum28
+public boolean sum28(int[] nums) {
+  int count = 0;
+  
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i] == 2){
+      count++;
+    } 
+  }
+  return count == 4;
+}
+//only14
+public boolean only14(int[] nums) {
+
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i] != 1 && nums[i] != 4){
+      return false;
+    }
+  }
+  return true;
+}
+//isEverywhere
+public boolean isEverywhere(int[] nums, int val) {
+  boolean result = true;
+for (int i = 0; i <=nums.length-2;i++){
+    if ( nums[i] != val && nums[i+1] != val)
+      result = false;
+  }
+  return result;
+}
+//has77
+public boolean has77(int[] nums) {
+  boolean result = false;
+  for (int i = 0; i < nums.length-1; i++){
+  if ((nums[i] == 7 && nums[i+1] == 7)){
+    result = true;
+   }
+  }
+   for (int i = 0; i < nums.length-2; i++){
+   if ((nums[i] == 7 && nums[i+2] == 7)){
+   result = true;
+   }
+  }
+  return result;
+}
+//haveThree
+public boolean haveThree(int[] nums) {
+  int count = 0;
+  boolean found = false;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] != 3)
+      found = false;
+    if (nums[i] == 3 && found == true)
+      return false;
+    if (nums[i] == 3 && found == false) {
+      found = true;
+      count++;
+    }
+  }
+  if (count == 3)
+    return true;
+  else
+   return false;
+}
+//tripleUp
+public boolean tripleUp(int[] nums) {
+  boolean result = false;
+  for (int i =0;i < nums.length-2;i++)  {
+    if ( (nums[i] + 1 == nums[i+1]) && (nums[i+1] + 1 == nums[i+2])){
+        result = true;
+    }
+  }
+  return result;
+}
+//tenRun
+public int[] tenRun(int[] nums) {
+  for(int i = 0; i < nums.length;i++){
+  if ( nums[i] % 10 == 0){
+  for (int j = i +1; j < nums.length && !(nums[j] % 10 == 0) ; j++) {
+      nums[j] = nums[i];
+  }
+  }
+  }
+  return nums;
+}
+//notAlone
+public int[] notAlone(int[] nums, int val) {
+  for (int i= 1;i<nums.length -1;i++){
+  if (nums[i] == val)
+  if (nums[i-1] != nums[i] && nums[i+1] != nums[i])
+   if (nums[i+1] > nums[i-1]) nums[i] = nums[i+1];
+   else if (nums[i+1] < nums[i-1]) nums[i] = nums[i-1];
+   }
+   return nums;
+}
+//zeroMax
+public int[] zeroMax(int[] nums) {
+  int max = 0;
+for (int j =0; j < nums.length -1;j++){
+if (nums[j] == 0){
+for (int i = j + 1; i <=nums.length -1;i++){
+if ( nums[i] > max && nums[i] % 2 == 1 )
+max = nums[i];
+}
+nums[j] = max;
+max = 0;
+}
+}
+return nums;
+}
+//centeredAverage
+public int centeredAverage(int[] nums) {
+  Arrays.sort(nums);
+        int c= 0,s=0;
+        for (int i = 1; i < nums.length - 1; i++)
+        {
+                s+= nums[i];
+                c++;
+        }
+            return (s/c);
+}
+//has22
+public boolean has22(int[] nums) {
+  for(int i = 0; i < nums.length - 1; i++){
+    if(nums[i] == 2 && nums[i+1] == 2){
+      return true;
+    }
+  }
+  return false;
+}
+//more14
+public boolean more14(int[] nums) {
+  int o = 0, f = 0;
+  
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i] == 1){
+      o++;
+    }
+    if(nums[i] == 4){
+      f++;
+    }
+  }
+  return o>f;
+}
+//fizzArray2
+public String[] fizzArray2(int n) {
+  String s[] = new String[n];
+  for(int i = 0; i < n; i++){
+    s[i] = ""+i;
+  }
+  return s;
+}
+//either24
+public boolean either24(int[] nums) {
+  boolean t = false, f = false;
+  
+  for(int i = 0; i < nums.length - 1; i++){
+    if(nums[i] == 2 && nums[i+1]== 2){
+      t = true;
+    }
+    if(nums[i] == 4 && nums[i+1]== 4){
+      f = true;
+    }
+  }
+  return t!=f;
+}
+//has12
+public boolean has12(int[] nums) {
+  boolean one = false, two = false;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == 1)
+      one = true;
+    if (nums[i] == 2 && one)
+      two = true;
+  }
+  return two;
+}
+//twoTwo
+public boolean twoTwo(int[] nums) {
+  int index =0;
+  for (int i=0; i<(nums.length); i++){
+     if(nums[i]==2){
+       i++;
+   if(!(i<(nums.length)) || nums[i] !=2) {
+    return false;
+}
+   while(i<nums.length && nums[i] ==2){
+      i++;
+    }
+  }
+}
+  return true;
+}
+//fizzArray3
+public int[] fizzArray3(int start, int end) {
+  int arr[] = new int[end - start];
+  int h = 0;
+  for(int i = start; i < end; i++){
+     arr[h] = i;
+     h++;
+  }
+  return arr;
+}
+//pre4
+public int[] pre4(int[] nums) {
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == 4 && i > 0) {
+      int[] foo = new int[i];
+      for (int j = 0; j < foo.length; j++) {
+        foo[j] = nums[j];
+      }
+      if (nums[0] != 4)
+        return foo;
+    }
+  }
+  int[] bar;
+  bar = new int[0];
+  return bar;
+}
+//zeroFront
+public int[] zeroFront(int[] nums) {
+  int c = 0;
+  
+  for(int i = 0; i < nums.length; i++){
+    if(nums[i] == 0){
+      int temp = nums[i];
+      nums[i] = nums[c];
+      nums[c] = temp;
+      c++;
+    }
+  }
+  return nums;
+}
+//evenOdd
+public int[] evenOdd(int[] nums) {
+  int start = 0;
+for(int i = 0; i < nums.length; i++) {
+if(nums[i] % 2 == 0) {
+int temp = nums[i];
+nums[i] = nums[start];
+nums[start] = temp;
+start++;
+}
+}
+return nums;
+}
