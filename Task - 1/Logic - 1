@@ -1,0 +1,275 @@
+//cigarParty
+public boolean cigarParty(int cigars, boolean isWeekend) {
+  if (isWeekend == true && cigars >= 40)
+    return true;
+  if (!(isWeekend) && cigars >=40 && cigars <= 60)
+    return true;
+    
+    return false;
+}
+//caughtySpeeding
+public int caughtSpeeding(int speed, boolean isBirthday) {
+  if (!(isBirthday)) {
+    if (speed <= 60)
+      return 0;
+    if (speed > 60 && speed <= 80)
+      return 1;
+    else
+      return 2;
+  } else if (speed <=65)
+      return 0;
+    else if (speed > 65 && speed <= 85)
+      return 1;
+    else
+      return 2;
+}
+//love6
+public boolean love6(int a, int b) {
+  return a==6||b==6||a+b==6||b-a==6||a-b==6;
+}
+//more20
+public boolean more20(int n) {
+  return n%20==1||n%20==2;
+}
+//nearTen
+public boolean nearTen(int num) {
+  if (num % 10 < 3 || num % 10 >=8)
+    return true;
+    
+  return false;
+}
+//teaParty
+public int teaParty(int tea, int candy) {
+  if(tea<5||candy<5){
+    return 0;
+  }
+  if(tea >= candy*2||candy >= tea*2){
+    return 2;
+  }
+  return 1;
+}
+//twoAsOne
+public boolean twoAsOne(int a, int b, int c) {
+  int sum = a+b+c;
+  
+  if(a == sum-a || b == sum-b|| c == sum-c){
+    return true;
+  }
+  return false;
+}
+//lastDigit
+public boolean lastDigit(int a, int b, int c) {
+  if(a%10==b%10||a%10==c%10){
+    return true;
+  }
+  if(b%10==a%10||b%10==c%10){
+    return true;
+  }
+  if(c%10==a%10||c%10==b%10){
+    return true;
+  }
+  return false;
+}
+//maxMod5
+public int maxMod5(int a, int b) {
+  if(a==b){
+    return 0;
+  }
+  int x = a%5, y = b%5;
+  if(x==y){
+    if(a<b){
+      return a;
+    }else{
+    return b;
+    }
+  }
+  if(a>b){
+    return a;
+  }else{
+  return b;
+  }
+}
+//blueTicket
+public int blueTicket(int a, int b, int c) {
+  int f = a+b, m = b+c, l = c+a;
+  if(f==10||m==10||l == 10){
+    return 10;
+  }
+  if(f-m == 10 || f - l==10){
+    return 5;
+  }
+  return 0;
+}
+//dateFashion
+public int dateFashion(int you, int date) {
+  if ((you >= 8 && date > 2) || (date >= 8 && you > 2))
+    return 2;
+  if (you <= 2 || date <= 2)
+    return 0;
+  else
+    return 1;
+}
+//sortaSum
+public int sortaSum(int a, int b) {
+  if(a+b>=10&&a+b<=19){
+    return 20;
+  }
+  return a+b;
+}
+//int1To10
+public boolean in1To10(int n, boolean outsideMode) {
+
+if(outsideMode) {return n <= 1 || n >= 10;}
+return n >= 1 && n <= 10;
+}
+//old35
+public boolean old35(int n) {
+  if(n%3==0&&n%5==0){
+    return false;
+  }
+  return n%3==0||n%5==0;
+}
+//teenSum
+public int teenSum(int a, int b) {
+  if(a>=13&&a<=19||b>=13&&b<=19){
+    return 19;
+  }
+  return a+b;
+}
+//fizzString
+public String fizzString(String str) {
+  if(str.charAt(0)=='f'&&str.charAt(str.length()-1)=='b'){
+    return "FizzBuzz";
+  }
+  if(str.charAt(0)=='f'){
+    return "Fizz";
+  }
+  if(str.charAt(str.length()-1)=='b'){
+    return "Buzz";
+  }
+  return str;
+}
+//inOrder
+public boolean inOrder(int a, int b, int c, boolean bOk) {
+  if(bOk) {
+    if (c > b)
+      return true;
+    else
+      return false;
+  }
+  if (b > a && c > b)
+    return true;
+  else
+    return false;
+}
+//lessBy10
+public boolean lessBy10(int a, int b, int c) {
+  int high = Math.max(a,b);
+  high = Math.max(high, c);
+  if (high - a >= 10 || high - b >= 10 || high - c >=10)
+    return true;
+  else
+    return false;
+}
+//redTicket
+public int redTicket(int a, int b, int c) {
+  if (a == 2 && b == 2 && c == 2){
+    return 10;
+  }
+  if ( a == b && b == c){
+    return 5;
+  }
+  if ( a != b && a != c){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+//shareDigit
+public boolean shareDigit(int a, int b) {
+  int aL = a / 10;
+  int aR = a % 10;
+  int bL = b / 10;
+  int bR = b % 10;
+  if (aL == bL || aL == bR || aR == bL || aR == bR)
+    return true;
+  else
+    return false;
+}
+//squirrelPlay
+public boolean squirrelPlay(int temp, boolean isSummer) {
+  if (isSummer && temp <= 100 && temp >= 60){
+    return true;
+  }
+  if (!(isSummer) && temp <= 90 && temp >=60){
+    return true;
+  }else{
+    return false;
+  }
+}
+//alarmClock
+public String alarmClock(int day, boolean vacation) {
+  if (vacation) {
+    if(day > 0 && day != 6){
+      return "10:00";
+    }else{
+      return "off";
+    }
+  } else if (day > 0 && day != 6){
+      return "7:00";
+    }else{
+      return "10:00";
+    }
+}
+//specialEleven
+public boolean specialEleven(int n) {
+  if(n%11==0||n%11==1){
+    return true;
+  }
+  return false;
+}
+//less20
+public boolean less20(int n) {
+  if(n%20==19||n%20==18){
+    return true;
+  }
+  return false;
+}
+//answerCell
+public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+  if (isAsleep)
+    return false;
+  if ((isMorning && isMom) || !isMorning)
+    return true;
+  else return false;
+}
+//fizzString2
+public String fizzString2(int n) {
+  if(n%3==0 && n%5==0)
+return "FizzBuzz!";
+if(n%3==0)
+return "Fizz!";
+if(n%5==0)
+return "Buzz!";
+return n+"!";
+}
+//inOrderEqual
+public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
+  return (!equalOk) ? a < b && b < c : a <= b && b <= c;
+}
+//withoutDoubles
+public int withoutDoubles(int die1, int die2, boolean noDoubles) {
+  if (noDoubles&&die1==die2) return (die1!= 6)?die1+1+die2:1+die2;
+return die1 + die2;
+}
+//greenTicket
+public int greenTicket(int a, int b, int c) {
+  return (a == b && b == c)? 20 :
+(a == b || b == c || a == c)? 10 :
+0;
+}
+//sumLimit
+public int sumLimit(int a, int b) {
+  boolean isEqual = String.valueOf(a).length() == String.valueOf(a+b).length();
+  return isEqual ? a + b : a;
+}
