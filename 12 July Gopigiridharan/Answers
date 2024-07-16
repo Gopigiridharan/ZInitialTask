@@ -1,0 +1,79 @@
+Question - 1) import java.util.Arrays;
+
+public class Question1 {
+
+	public static void main(String[] args) {
+
+		int arr[] = { 13, -3, -5, -100, -1};
+		sortArray(arr);
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+	public static void sortArray(int[] arr) {
+		int n = arr.length;
+		for (int i = 0, x = 1; i < n; i += 2, x += 2) {
+			for (int j = 0, y = 1; j < n - i - 2; j += 2, y += 2) {
+				if (arr[j] < arr[j + 2]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 2];
+					arr[j + 2] = temp;
+				}
+				if (y < n - x - 1 && arr[y] > arr[y + 2]) {
+					int temp = arr[y];
+					arr[y] = arr[y + 2];
+					arr[y + 2] = temp;
+				}
+			}
+		}
+	}
+}
+Question - 2) public class Question2 {
+
+	public static void main(String[] args) {
+
+		int n = 7022;
+
+		String ones[] = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+		String tens[] = { "", "eleven", "tweleve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+				"eighteen", "nineteen" };
+		String ten[] = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+		String t = "ten", hun = "hundred", tho = "thousand", lak = "lakh", cro = "crore";
+
+		int p = 1, ele = 0, q = 10;
+		String s = "";
+
+		while (n != 0) {
+			ele = (n % 10) * p;
+			p *= 10;
+			n /= 10;
+			if (ele <= 9 && (ele * 10)+ele < 9) {
+				s = ones[ele] + s;
+			} else if (ele <= 9 && (ele * 10)+(n % 100) > 9) {
+				s = tens[ele];
+				n/=10;
+			} else if (ele <= 19) {
+				int num = (ele / 100) * 10 + (ele / 10);
+				s = tens[num] + s;
+			} else if (ele <= 99) {
+				s = ten[ele / 10] + s;
+				ele *= 10;
+			} else if (ele <= 999) {
+				s = ones[ele / 100] + hun + s;
+				ele *= 100;
+			} else if (ele <= 9999) {
+				s = ones[ele / 1000] + tho + s;
+				ele *= 1000;
+			} else if (ele <= 99999) {
+				s = ones[ele / 10000] + s;
+				ele *= 10000;
+			} else if (ele <= 999999) {
+				s = ones[ele / 100000] + lak + s;
+				ele *= 100000;
+			} else if (ele <= 9999999) {
+				s = ones[ele / 10000000] + cro + s;
+				ele *= 1000000;
+			}
+		}
+		System.out.println(s);
+	}
